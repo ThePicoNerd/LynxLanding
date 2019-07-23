@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landing
+  labels:
+    app: landing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: landing
+  template:
+    metadata:
+      labels:
+        app: landing
+    spec:
+      containers:
+      - name: nginx
+        image: registry.lynx.agency/lynx/landing:IMAGE_TAG
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - landing-registry
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: main-cert
+spec:
+  acme:
+    config:
+    - domains:
+      - lynx.agency
+      http01:
+        ingress: ""
+  dnsNames:
+  - lynx.agency
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-production
+  secretName: main-cert
+---
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: landing-ingress
+spec:
+  tls:
+  - hosts:
+    - lynx.agency
+    secretName: main-cert
+  rules:
+  - host: lynx.agency
+    http:
+      paths:
+      - backend:
+          serviceName: landing
+          servicePort: 80
