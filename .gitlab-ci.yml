@@ -20,7 +20,7 @@ test:
     - gatsby build
   artifacts:
     paths:
-      - publish
+      - public
     expire_in: 1 day
 
 build:
