@@ -11,10 +11,17 @@ stages:
   - deploy
 
 test:
+  image: node:10.15.0-alpine
   stage: test
+  before_script:
+    - npm install -g gatsby-cli
+    - npm install
   script:
-    - docker build -t web .
-    - docker run web
+    - gatsby build
+  artifacts:
+    paths:
+      - publish
+    expire_in: 1 day
 
 build:
   stage: build
