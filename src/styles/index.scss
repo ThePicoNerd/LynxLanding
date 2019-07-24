@@ -40,10 +40,6 @@ h1 {
 h1 b {
   color: #ff0000;
   font-weight: inherit;
-
-  .parallax-outer {
-    display: inline-block;
-  }
 }
 
 .section {
@@ -170,7 +166,7 @@ form {
   input,
   textarea {
     outline: none !important;
-    background: #f0f0f0;
+    background-color: #f0f0f0;
     font-family: "IBM Plex Mono", "Courier New", Courier, monospace;
     font-weight: 600;
     font-size: 14px;
@@ -179,8 +175,23 @@ form {
     border-radius: 2px;
     transition: background-color 0.3s ease;
 
-    &:focus {
-      background: #e5e5e5;
+    &:focus,
+    &:hover {
+      background-color: #e5e5e5;
+    }
+  }
+
+  input[type="submit"] {
+    padding: 16px 32px;
+    background-color: #ff0000;
+    color: #fff;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    border-radius: 3px;
+
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.2);
     }
   }
 }

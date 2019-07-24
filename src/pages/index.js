@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/index.scss";
-import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+import { ParallaxProvider } from "react-scroll-parallax";
 import TextSection from "../components/TextSection";
 import GridList from "../components/GridList";
 import Section from "../components/Section";
@@ -39,11 +39,7 @@ export default () => (
     <div className="section center full-height">
       <div>
         <h1>
-          We make software that{" "}
-          <b>
-            <Parallax y={[-100, 100]}>works</Parallax>
-          </b>
-          .
+          We make software that <b>works</b>.
         </h1>
       </div>
     </div>
@@ -123,31 +119,29 @@ export default () => (
         </p>
       </TextSection>
       <div className="sm12 md6">
-        <Parallax y={[50, -50]}>
-          <form action="https://formspree.io/hi@lynx.agency" method="POST">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              class="sm12 md6"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              class="sm12 md6"
-              required
-            />
-            <textarea
-              name="description"
-              placeholder="Tell us about your idea!"
-              class="sm12"
-              required
-            ></textarea>
-            <input type="submit" value="Send" />
-          </form>
-        </Parallax>
+        <form action="https://formspree.io/hi@lynx.agency" method="POST">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            class="sm12 md6"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            class="sm12 md6"
+            required
+          />
+          <textarea
+            name="description"
+            placeholder="Tell us about your idea!"
+            class="sm12"
+            required
+          ></textarea>
+          <input type="submit" value="Send" />
+        </form>
       </div>
     </Section>
     <div class="footer">
