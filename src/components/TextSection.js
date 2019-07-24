@@ -1,13 +1,13 @@
 import React from "react";
-import { Parallax } from "react-scroll-parallax";
+import AnimatedTitle from "./AnimatedTitle";
 
 export default class TextSection extends React.Component {
   render() {
     return (
       <div className={this.props.className}>
-        <h1>{this.props.title}</h1>
+        <AnimatedTitle text={this.props.title}></AnimatedTitle>
         {this.props.children}
-        </div>
+      </div>
     );
   }
 }

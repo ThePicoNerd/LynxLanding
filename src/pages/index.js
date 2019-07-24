@@ -82,32 +82,30 @@ export default () => (
         </p>
       </TextSection>
       <div className="sm12 md6">
-        <Parallax y={[50, -50]}>
-          <GridList
-            cols="3"
-            items={[
-              ".NET Core",
-              "C#",
-              "CSS",
-              "Docker",
-              "DigitalOcean",
-              "Firebase",
-              "GitLab",
-              "Google Cloud Platform",
-              "gRPC",
-              "GTFS",
-              "HTML",
-              "JavaScript",
-              "Kubernetes",
-              "Node.js",
-              "PostgreSQL",
-              "React",
-              "Redis",
-              "SQL",
-              "TypeScript",
-            ]}
-          />
-        </Parallax>
+        <GridList
+          cols="3"
+          items={[
+            ".NET Core",
+            "C#",
+            "CSS",
+            "Docker",
+            "DigitalOcean",
+            "Firebase",
+            "GitLab",
+            "Google Cloud Platform",
+            "gRPC",
+            "GTFS",
+            "HTML",
+            "JavaScript",
+            "Kubernetes",
+            "Node.js",
+            "PostgreSQL",
+            "React",
+            "Redis",
+            "SQL",
+            "TypeScript",
+          ]}
+        />
       </div>
     </Section>
     <Section>

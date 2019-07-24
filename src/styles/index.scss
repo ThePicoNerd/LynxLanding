@@ -85,7 +85,6 @@ h1 b {
     h1 {
       margin: 0;
 
-      
       &:not(:last-child) {
         margin-bottom: 48px;
       }
@@ -109,6 +108,21 @@ h1 b {
 
   li {
     list-style: none;
+  }
+
+  .animation-wrapper {
+    overflow: hidden;
+    display: block;
+
+    > span {
+      display: inline-block;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-out;
+    }
+  }
+
+  &.is-inview .animation-wrapper > span {
+    transform: translateY(0);
   }
 }
 
@@ -153,10 +167,11 @@ form {
     min-height: 100px;
   }
 
-  input, textarea {
+  input,
+  textarea {
     outline: none !important;
     background: #f0f0f0;
-    font-family: "IBM Plex Mono", 'Courier New', Courier, monospace;
+    font-family: "IBM Plex Mono", "Courier New", Courier, monospace;
     font-weight: 600;
     font-size: 14px;
     padding: 16px 8px;
@@ -170,14 +185,35 @@ form {
   }
 }
 
-::-webkit-input-placeholder { /* Edge */
+::-webkit-input-placeholder {
+  /* Edge */
   color: #ccc;
 }
 
-:-ms-input-placeholder { /* Internet Explorer */
+:-ms-input-placeholder {
+  /* Internet Explorer */
   color: #ccc;
 }
 
 ::placeholder {
   color: #ccc;
+}
+
+.animated-title {
+  .word {
+    display: inline-block;
+    overflow: hidden;
+    margin: -0.2em 0.2em -0.2em 0;
+  }
+
+  span.letter {
+    transition: transform 0.3s cubic-bezier(0.16, 0.62, 0.34, 0.92);
+    transform: translateY(100%);
+    display: inline-block;
+    line-height: 1.5;
+  }
+
+  &.is-inview span.letter {
+    transform: translateY(0);
+  }
 }
