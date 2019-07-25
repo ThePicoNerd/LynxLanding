@@ -47,7 +47,7 @@ h1 {
       font-size: 64px;
     }
 
-    @include rwd(711.111111111) {
+    @include rwd(6400/9) {
       font-size: 9vw;
     }
   }
@@ -62,11 +62,14 @@ h1 {
   padding: 64px 32px;
   box-sizing: border-box;
 
-  &.center {
+  &.section--center-v {
+    display: flex;
+    align-items: center;
+  }
+
+  &.section--center-h {
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
   }
 
   &.full-height {

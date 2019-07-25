@@ -38,7 +38,7 @@ export default () => (
       <meta name="msapplication-TileColor" content="#da532c"></meta>
       <meta name="theme-color" content="#ffffff"></meta>
     </Helmet>
-    <Section className="full-height">
+    <Section className="full-height section--center-v">
       <GridCol className="sm12 lg6">
         <AnimatedTitle className="title--big">We make software that works.</AnimatedTitle>
       </GridCol>
@@ -130,14 +130,14 @@ export default () => (
             type="text"
             name="name"
             placeholder="Name"
-            className="sm12 md6"
+            className="sm12 lg6"
             required
           />
           <input
             type="email"
             name="email"
             placeholder="Email"
-            className="sm12 md6"
+            className="sm12 lg6"
             required
           />
           <textarea
@@ -146,7 +146,9 @@ export default () => (
             className="sm12"
             required
           ></textarea>
-          <input type="submit" value="Send" />
+          <GridCol className="sm12">
+            <input type="submit" value="Send" />
+          </GridCol>
         </form>
       </div>
     </Section>
