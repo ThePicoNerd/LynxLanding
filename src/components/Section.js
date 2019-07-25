@@ -27,7 +27,7 @@ export default class Section extends React.Component {
         onEnter={this.onEnterViewport}
         onExit={this.onExitViewport}
       >
-        <div className={`section ${this.state.visible ? "is-inview" : ""}`}>
+        <div className={`${this.props.className} section ${this.state.visible ? "is-inview" : ""}`}>
           <div className="container">{this.props.children}</div>
         </div>
       </ScrollTrigger>

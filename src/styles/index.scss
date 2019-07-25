@@ -71,11 +71,18 @@ h1 b {
 }
 
 .container {
-  max-width: 1024px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 24px;
+
+  @include sm {
+    max-width: 90%;
+  }
+
+  @include md {
+    grid-gap: 32px;
+  }
 
   > div {
     h1 {
@@ -83,6 +90,18 @@ h1 b {
 
       &:not(:last-child) {
         margin-bottom: 48px;
+      }
+
+      @include sm {
+        font-size: 5vw;
+      }
+
+      &.title--big {
+        font-size: 96px;
+
+        @include rwd(1066.66666667) {
+          font-size: 9vw;
+        }
       }
     }
 
@@ -214,14 +233,14 @@ form {
   .word {
     display: inline-block;
     overflow: hidden;
-    margin: -0.2em 0.2em -0.2em 0;
+    margin: -0.3em 0.2em -0.2em 0;
   }
 
   span.letter {
     transition: transform 0.3s cubic-bezier(0.16, 0.62, 0.34, 0.92);
     transform: translateY(100%);
     display: inline-block;
-    line-height: 1.5;
+    line-height: 1.2;
   }
 
   &.is-inview span.letter {

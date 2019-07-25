@@ -5,6 +5,8 @@ import TextSection from "../components/TextSection";
 import GridList from "../components/GridList";
 import Section from "../components/Section";
 import { Helmet } from "react-helmet";
+import GridCol from "../components/GridCol";
+import AnimatedTitle from "../components/AnimatedTitle";
 
 export default () => (
   <ParallaxProvider>
@@ -36,15 +38,16 @@ export default () => (
       <meta name="msapplication-TileColor" content="#da532c"></meta>
       <meta name="theme-color" content="#ffffff"></meta>
     </Helmet>
-    <div className="section center full-height">
-      <div>
-        <h1>
-          We make software that <b>works</b>.
-        </h1>
-      </div>
-    </div>
+    <Section className="full-height">
+      <GridCol className="sm12 lg6">
+        <AnimatedTitle className="title--big">We make software that works.</AnimatedTitle>
+      </GridCol>
+    </Section>
     <Section>
-      <TextSection className="sm12 md6" title={"We are Lynx."}>
+      <GridCol className="sm12 md6">
+        <AnimatedTitle>We are Lynx.</AnimatedTitle>
+      </GridCol>
+      <GridCol className="sm12 md6">
         <p>
           Founded by <a href="https://github.com/ThePicoNerd">@ThePicoNerd</a>{" "}
           in Stockholm in 2015, we help people and businesses with everything
@@ -53,10 +56,13 @@ export default () => (
           <i>yet</i>, but we are always learning! Tell us about your idea and we
           promise to try our best to make it happen.
         </p>
-      </TextSection>
+      </GridCol>
     </Section>
     <Section>
-      <TextSection className="sm12 md6" title="We specialize in scalability.">
+      <GridCol className="sm12 md6">
+        <AnimatedTitle>We specialize in scalability.</AnimatedTitle>
+      </GridCol>
+      <GridCol className="sm12 md6">
         <p>
           Our applications are always ready to handle huge spikes in traffic,
           without the end users even noticing. We achieve this with the help of
@@ -67,7 +73,7 @@ export default () => (
           Kubernetes, but the applications are made and <i>containerized</i> by
           us.
         </p>
-      </TextSection>
+      </GridCol>
     </Section>
     <Section>
       <TextSection className="sm12 md6" title="This is our toolbox.">
@@ -124,27 +130,27 @@ export default () => (
             type="text"
             name="name"
             placeholder="Name"
-            class="sm12 md6"
+            className="sm12 md6"
             required
           />
           <input
             type="email"
             name="email"
             placeholder="Email"
-            class="sm12 md6"
+            className="sm12 md6"
             required
           />
           <textarea
             name="description"
             placeholder="Tell us about your idea!"
-            class="sm12"
+            className="sm12"
             required
           ></textarea>
           <input type="submit" value="Send" />
         </form>
       </div>
     </Section>
-    <div class="footer">
+    <div className="footer">
       <p>© 2019 Lynx</p>
     </div>
   </ParallaxProvider>

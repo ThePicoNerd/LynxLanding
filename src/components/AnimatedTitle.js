@@ -22,7 +22,7 @@ export default class AnimatedTitle extends React.Component {
   };
 
   render() {
-    let words = this.props.text.split(" ");
+    let words = this.props.children.split(" ");
     let offset = 0;
     let delay = this.props.delay || 20;
 
@@ -32,7 +32,7 @@ export default class AnimatedTitle extends React.Component {
         onExit={this.onExitViewport}
       >
         <h1
-          className={`animated-title ${this.state.visible ? "is-inview" : ""}`}
+          className={`animated-title ${this.props.className} ${this.state.visible ? "is-inview" : ""}`}
         >
           {words.map((word, i) => {
             let letters = word.split("");
