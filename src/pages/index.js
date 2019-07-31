@@ -153,7 +153,7 @@ export default () => (
       </div>
     </Section>
     <div className="footer">
-      <p>© 2019 Lynx</p>
+      <p>© 2019 Lynx · <a href="https://blog.lynx.agency">Blog</a></p>
     </div>
   </ParallaxProvider>
 );
