@@ -1,4 +1,4 @@
-FROM node:10.15.0-alpine
+FROM node:10-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install -g gatsby-cli
@@ -6,8 +6,8 @@ RUN npm install
 COPY . .
 RUN gatsby build
 
-FROM nginx:1.13.0-alpine
+FROM nginx:1.13-alpine AS production
 WORKDIR /usr/share/nginx/html
-COPY --from=0 /app/public ./
+COPY --from-stage=build /app/public ./
 
 EXPOSE 80

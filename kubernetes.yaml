@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: registry.lynx.agency/lynx/landing:IMAGE_TAG
+        image: registry.pkg.github.com/thepiconerd/lynxlanding
         ports:
         - containerPort: 80
       imagePullSecrets:
-        - name: landing-registry
+        - name: registry
 ---
 kind: Service
 apiVersion: v1
@@ -36,35 +36,18 @@ spec:
   selector:
     app: landing
 ---
-apiVersion: certmanager.k8s.io/v1alpha1
-kind: Certificate
-metadata:
-  name: main-cert
-spec:
-  acme:
-    config:
-    - domains:
-      - lynx.agency
-      http01:
-        ingress: ""
-  dnsNames:
-  - lynx.agency
-  issuerRef:
-    kind: ClusterIssuer
-    name: letsencrypt-production
-  secretName: main-cert
----
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
   name: landing-ingress
   annotations:
     kubernetes.io/ingress.class: traefik
+    certmanager.k8s.io/cluster-issuer: letsencrypt
 spec:
   tls:
   - hosts:
     - lynx.agency
-    secretName: main-cert
+    secretName: landing-ingress-cert
   rules:
   - host: lynx.agency
     http:
