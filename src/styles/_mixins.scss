@@ -72,3 +72,15 @@ $screen-xl-min: 1200px;
   font-weight: 500;
   font-size: 16px;
 }
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
