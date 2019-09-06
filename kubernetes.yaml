@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: registry.pkg.github.com/thepiconerd/lynxlanding
+        image: docker.pkg.github.com/thepiconerd/lynxlanding/lynxlanding:v0.3.2
         ports:
         - containerPort: 80
       imagePullSecrets:

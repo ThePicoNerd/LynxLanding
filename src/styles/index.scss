@@ -207,6 +207,11 @@ form {
 
   input {
     border: none;
+    input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
   }
 
   textarea {

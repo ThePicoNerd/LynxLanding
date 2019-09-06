@@ -8,6 +8,6 @@ RUN gatsby build
 
 FROM nginx:1.13-alpine AS production
 WORKDIR /usr/share/nginx/html
-COPY --from-stage=build /app/public ./
+COPY --from=build /app/public ./
 
 EXPOSE 80
